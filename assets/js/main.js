@@ -190,12 +190,14 @@ function initModals() {
       </li>
     `).join('');
 
+    modalBackdrop.style.display = 'flex';
     modalBackdrop.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
   function closeDossier() {
     modalBackdrop.classList.remove('active');
+    modalBackdrop.style.display = 'none';
     document.body.style.overflow = '';
   }
 
@@ -234,12 +236,14 @@ function initLightbox() {
   function openLightbox(src, alt) {
     lightboxImg.src = src;
     lightboxImg.alt = alt || 'Preview';
+    lightbox.style.display = 'flex';
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
   function closeLightbox() {
     lightbox.classList.remove('active');
+    lightbox.style.display = 'none';
     document.body.style.overflow = '';
   }
 
@@ -267,6 +271,7 @@ function initLightbox() {
 window.openCvModal = function() {
   const cvModal = document.getElementById('cv-modal');
   if (cvModal) {
+    cvModal.style.display = 'flex';
     cvModal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -276,6 +281,7 @@ window.closeCvModal = function() {
   const cvModal = document.getElementById('cv-modal');
   if (cvModal) {
     cvModal.classList.remove('active');
+    cvModal.style.display = 'none';
     document.body.style.overflow = '';
   }
 };
@@ -294,10 +300,14 @@ function initClipboardToast() {
   window.showToast = function(msg) {
     if (!toast || !toastMessage) return;
     toastMessage.textContent = msg;
+    toast.style.display = 'flex';
     toast.classList.add('show');
     clearTimeout(window._toastTimer);
     window._toastTimer = setTimeout(() => {
       toast.classList.remove('show');
+      setTimeout(() => {
+        if (!toast.classList.contains('show')) toast.style.display = 'none';
+      }, 300);
     }, 3000);
   };
 

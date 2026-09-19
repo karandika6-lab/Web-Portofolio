@@ -11,12 +11,16 @@
         if (screenW < targetWidth) {
           var ratio = screenW / targetWidth;
           document.documentElement.style.minWidth = targetWidth + 'px';
-          document.body.style.width = targetWidth + 'px';
-          document.body.style.zoom = ratio;
+          if (document.body) {
+            document.body.style.width = targetWidth + 'px';
+            document.body.style.zoom = ratio;
+          }
         } else {
           document.documentElement.style.minWidth = '';
-          document.body.style.width = '';
-          document.body.style.zoom = '';
+          if (document.body) {
+            document.body.style.width = '';
+            document.body.style.zoom = '';
+          }
         }
       }
       window.addEventListener('resize', syncDesktopLayout);
@@ -1190,7 +1194,7 @@
   <!-- ================================================================= -->
   <!-- MODAL: PROJECT VERIFICATION DOSSIER                               -->
   <!-- ================================================================= -->
-  <div id="project-modal" class="modal-backdrop fixed inset-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
+  <div id="project-modal" style="display: none;" class="modal-backdrop fixed inset-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
     <div class="modal-dialog bg-[#141414] border border-[#262626] max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-lg shadow-2xl p-6 relative">
       <button id="close-project-modal" aria-label="Tutup" class="absolute top-4 right-4 text-secondary hover:text-on-surface p-1">
         <span class="material-symbols-outlined text-2xl">close</span>
@@ -1231,7 +1235,7 @@
   <!-- ================================================================= -->
   <!-- MODAL: INTERACTIVE CV VIEWER                                      -->
   <!-- ================================================================= -->
-  <div id="cv-modal" class="modal-backdrop fixed inset-0 z-50 bg-[#0a0a0a]/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
+  <div id="cv-modal" style="display: none;" class="modal-backdrop fixed inset-0 z-50 bg-[#0a0a0a]/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
     <div class="modal-dialog bg-[#141414] border border-[#262626] max-w-3xl w-full max-h-[92vh] overflow-y-auto rounded-lg shadow-2xl p-6 sm:p-8 relative">
       <div class="flex items-center justify-between pb-4 border-b border-[#262626] mb-6">
         <div class="flex items-center gap-2">
@@ -1469,7 +1473,7 @@
   <!-- ================================================================= -->
   <!-- LIGHTBOX IMAGE PREVIEW                                            -->
   <!-- ================================================================= -->
-  <div id="lightbox-modal" class="modal-backdrop fixed inset-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-lg flex items-center justify-center p-4">
+  <div id="lightbox-modal" style="display: none;" class="modal-backdrop fixed inset-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-lg flex items-center justify-center p-4">
     <button id="close-lightbox" aria-label="Tutup" class="absolute top-6 right-6 text-on-surface hover:text-primary p-2">
       <span class="material-symbols-outlined text-3xl">close</span>
     </button>
@@ -1481,7 +1485,7 @@
   <!-- ================================================================= -->
   <!-- TOAST NOTIFICATION                                                -->
   <!-- ================================================================= -->
-  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 bg-[#141414] border border-primary-container text-on-surface px-4 py-3 rounded shadow-2xl flex items-center gap-3">
+  <div id="toast-notification" style="display: none;" class="fixed bottom-6 right-6 z-50 bg-[#141414] border border-primary-container text-on-surface px-4 py-3 rounded shadow-2xl flex items-center gap-3">
     <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
     <span id="toast-message" class="text-xs font-mono font-medium"></span>
   </div>
