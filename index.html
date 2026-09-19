@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html class="dark" lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280, user-scalable=yes">
+  <script>
+    (function() {
+      function syncDesktopLayout() {
+        var targetWidth = 1280;
+        var screenW = window.innerWidth;
+        if (screenW < targetWidth) {
+          var ratio = screenW / targetWidth;
+          document.documentElement.style.minWidth = targetWidth + 'px';
+          document.body.style.width = targetWidth + 'px';
+          document.body.style.zoom = ratio;
+        } else {
+          document.documentElement.style.minWidth = '';
+          document.body.style.width = '';
+          document.body.style.zoom = '';
+        }
+      }
+      window.addEventListener('resize', syncDesktopLayout);
+      window.addEventListener('orientationchange', syncDesktopLayout);
+      document.addEventListener('DOMContentLoaded', syncDesktopLayout);
+      syncDesktopLayout();
+    })();
+  </script>
+  <meta content="Bagus Karandika - Software QA & Testing Engineer, Information Systems Graduate" name="description">
+  <meta content="Bagus Karandika, Quality Assurance, Software Testing, Web Developer, Sistem Informasi, Portfolio" name="keywords">
+  <meta content="Bagus Karandika" name="author">
+  <title>Bagus Karandika | QA & Software Testing Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Geist:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN & Extensions -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        screens: {
+          'sm': '0px',
+          'md': '0px',
+          'lg': '0px',
+          'xl': '0px',
+          '2xl': '0px'
+        },
+        extend: {
+          colors: {
+            "on-secondary-fixed": "#1a1c1c",
+            "secondary-fixed-dim": "#c6c6c7",
+            "on-primary": "#680011",
+            "on-tertiary": "#003543",
+            "tertiary-fixed": "#b6ebff",
+            "tertiary-fixed-dim": "#82d1ed",
+            "surface-variant": "#353534",
+            "tertiary-container": "#006e87",
+            "background": "#0a0a0a",
+            "primary-container": "#c8102e",
+            "outline": "#ac8887",
+            "inverse-primary": "#bf0229",
+            "on-secondary": "#2f3131",
+            "on-background": "#e5e2e1",
+            "inverse-on-surface": "#313030",
+            "surface-bright": "#3a3939",
+            "on-error": "#690005",
+            "on-tertiary-container": "#b6ebff",
+            "on-surface-variant": "#e5bdbb",
+            "primary": "#ffb3b1",
+            "on-primary-container": "#ffdad8",
+            "surface-container-lowest": "#0a0a0a",
+            "on-tertiary-fixed": "#001f28",
+            "on-error-container": "#ffdad6",
+            "surface-tint": "#ffb3b1",
+            "on-secondary-fixed-variant": "#454747",
+            "on-primary-fixed": "#410007",
+            "surface-container": "#141414",
+            "surface-container-low": "#111111",
+            "error": "#ffb4ab",
+            "on-tertiary-fixed-variant": "#004e60",
+            "secondary-container": "#454747",
+            "surface-dim": "#0e0e0e",
+            "outline-variant": "#262626",
+            "primary-fixed": "#ffdad8",
+            "primary-fixed-dim": "#ffb3b1",
+            "on-surface": "#e5e2e1",
+            "secondary-fixed": "#e2e2e2",
+            "error-container": "#93000a",
+            "surface-container-highest": "#262626",
+            "on-secondary-container": "#b4b5b5",
+            "surface-container-high": "#1c1c1c",
+            "inverse-surface": "#e5e2e1",
+            "on-primary-fixed-variant": "#92001c",
+            "tertiary": "#82d1ed",
+            "surface": "#0a0a0a",
+            "secondary": "#a1a1aa"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem",
+            "space-2xl": "4rem",
+            "space-3xl": "6rem",
+            "margin": "3rem",
+            "margin-mobile": "1.25rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem"
+          },
+          fontFamily: {
+            "body-sm": ["Geist", "sans-serif"],
+            "display-ambient": ["Anton", "sans-serif"],
+            "code-snippet": ["Geist", "monospace"],
+            "headline-lg": ["Montserrat", "sans-serif"],
+            "headline-xl": ["Montserrat", "sans-serif"],
+            "body-md": ["Geist", "sans-serif"],
+            "body-lg": ["Geist", "sans-serif"],
+            "headline-md": ["Montserrat", "sans-serif"],
+            "label-caps": ["Montserrat", "sans-serif"],
+            "display-hero-mobile": ["Anton", "sans-serif"],
+            "display-hero": ["Anton", "sans-serif"],
+            "headline-xl-mobile": ["Montserrat", "sans-serif"]
+          },
+          fontSize: {
+            "body-sm": ["13px", { lineHeight: "20px", fontWeight: "400" }],
+            "display-ambient": ["160px", { lineHeight: "140px", letterSpacing: "0.04em", fontWeight: "400" }],
+            "code-snippet": ["13px", { lineHeight: "20px", fontWeight: "500" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "body-md": ["15px", { lineHeight: "24px", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "headline-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+            "label-caps": ["11px", { lineHeight: "16px", letterSpacing: "0.12em", fontWeight: "700" }],
+            "display-hero-mobile": ["56px", { lineHeight: "56px", letterSpacing: "0.02em", fontWeight: "400" }],
+            "display-hero": ["112px", { lineHeight: "100px", letterSpacing: "0.02em", fontWeight: "400" }],
+            "headline-xl-mobile": ["32px", { lineHeight: "38px", letterSpacing: "-0.01em", fontWeight: "800" }]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
+</head>
+
+<body class="bg-surface-container-lowest text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container min-h-screen overflow-x-hidden">
+
+  <!-- ================================================================= -->
+  <!-- NAVBAR                                                            -->
+  <!-- ================================================================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-[#262626]">
+    <div class="h-16 max-w-[1440px] mx-auto px-margin-mobile lg:px-margin flex items-center justify-between">
+      
+      <!-- Brand Identity -->
+      <a class="flex items-center gap-2 sm:gap-2.5 group py-1" href="#hero">
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <span class="font-headline-md text-base sm:text-[17px] font-bold tracking-wider text-on-surface uppercase">BK</span>
+          <span class="text-[#353534] font-normal">/</span>
+          <span class="font-label-caps text-[10px] sm:text-xs tracking-widest text-[#a1a1aa] group-hover:text-on-surface transition-colors font-semibold uppercase truncate max-w-[120px] sm:max-w-none">Bagus Karandika</span>
+        </div>
+        <span class="w-1.5 h-1.5 rounded-full bg-primary-container shadow-[0_0_8px_rgba(200,16,46,0.8)]"></span>
+      </a>
+
+      <!-- Desktop Nav Items -->
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+        <a class="nav-link font-label-caps text-[11px] tracking-widest uppercase text-on-surface flex items-center gap-1.5 transition-colors font-semibold py-1" href="#workflow">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+          <span>Expertise</span>
+        </a>
+        <a class="nav-link font-label-caps text-[11px] tracking-widest uppercase text-secondary hover:text-on-surface transition-colors font-semibold py-1" href="#skills">Skills</a>
+        <a class="nav-link font-label-caps text-[11px] tracking-widest uppercase text-secondary hover:text-on-surface transition-colors font-semibold py-1" href="#projects">Projects</a>
+        <a class="nav-link font-label-caps text-[11px] tracking-widest uppercase text-secondary hover:text-on-surface transition-colors font-semibold py-1" href="#experience">Experience & Edu</a>
+        <a class="nav-link font-label-caps text-[11px] tracking-widest uppercase text-secondary hover:text-on-surface transition-colors font-semibold py-1" href="#achievements">Achievements</a>
+        <a class="nav-link font-label-caps text-[11px] tracking-widest uppercase text-secondary hover:text-on-surface transition-colors font-semibold py-1" href="#contact">Contact</a>
+      </nav>
+
+      <!-- Action Buttons & Hamburger -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a class="inline-flex items-center justify-center font-label-caps text-[10px] sm:text-[11px] tracking-wider uppercase px-2.5 sm:px-4 py-1.5 sm:py-2 bg-primary-container text-on-primary-container hover:bg-inverse-primary transition-all duration-200 border border-primary-container font-bold shadow-[0_0_12px_rgba(200,16,46,0.4)]" href="#contact">
+          Get in Touch
+        </a>
+        <a href="assets/cv/CV_Bagus_Karandika.pdf" download="CV_Bagus_Karandika.pdf" class="inline-flex items-center justify-center gap-1 font-label-caps text-[10px] sm:text-[11px] tracking-wider uppercase px-2.5 sm:px-4 py-1.5 sm:py-2 bg-[#141414] text-on-surface border border-[#262626] hover:border-secondary hover:bg-[#1c1c1c] transition-colors font-medium">
+          <span class="material-symbols-outlined text-[13px] sm:text-[14px]">download</span>
+          <span class="hidden xs:inline">Download CV</span>
+          <span class="xs:hidden">CV</span>
+        </a>
+        
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" aria-label="Buka Menu" class="lg:hidden p-1.5 text-[#a1a1aa] hover:text-on-surface border border-[#262626] bg-[#141414] rounded">
+          <span class="material-symbols-outlined text-[20px]">menu</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-xl hidden flex-col justify-between p-6 transform translate-x-full transition-transform duration-300 lg:hidden">
+    <div class="flex items-center justify-between pb-4 border-b border-[#262626]">
+      <div class="flex items-center gap-2">
+        <span class="font-headline-md text-lg font-bold text-on-surface">BK</span>
+        <span class="text-secondary text-sm">/ Navigation</span>
+      </div>
+      <button id="close-mobile-menu" aria-label="Tutup Menu" class="p-2 text-secondary hover:text-on-surface">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+    </div>
+
+    <nav class="flex flex-col gap-4 py-8">
+      <a class="font-headline-md text-xl font-semibold text-on-surface hover:text-primary transition-colors flex items-center gap-3" href="#workflow">
+        <span class="text-primary font-mono text-xs">01</span> Expertise
+      </a>
+      <a class="font-headline-md text-xl font-semibold text-on-surface hover:text-primary transition-colors flex items-center gap-3" href="#skills">
+        <span class="text-primary font-mono text-xs">02</span> Skills Matrix
+      </a>
+      <a class="font-headline-md text-xl font-semibold text-on-surface hover:text-primary transition-colors flex items-center gap-3" href="#projects">
+        <span class="text-primary font-mono text-xs">03</span> Selected Projects
+      </a>
+      <a class="font-headline-md text-xl font-semibold text-on-surface hover:text-primary transition-colors flex items-center gap-3" href="#experience">
+        <span class="text-primary font-mono text-xs">04</span> Experience & Education
+      </a>
+      <a class="font-headline-md text-xl font-semibold text-on-surface hover:text-primary transition-colors flex items-center gap-3" href="#achievements">
+        <span class="text-primary font-mono text-xs">05</span> Achievements
+      </a>
+      <a class="font-headline-md text-xl font-semibold text-on-surface hover:text-primary transition-colors flex items-center gap-3" href="#contact">
+        <span class="text-primary font-mono text-xs">06</span> Contact Dossier
+      </a>
+    </nav>
+
+    <div class="flex flex-col gap-3 pt-6 border-t border-[#262626]">
+      <a href="assets/cv/CV_Bagus_Karandika.pdf" download="CV_Bagus_Karandika.pdf" class="w-full py-3 bg-primary-container text-on-primary-container font-label-caps text-xs uppercase tracking-wider font-bold text-center flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined text-sm">download</span>
+        Download Curriculum Vitae (PDF)
+      </a>
+      <div class="text-center text-xs text-[#a1a1aa] font-mono">
+        Bagus Karandika • Lampung, ID
+      </div>
+    </div>
+  </div>
+
+  <main class="w-full pt-16 bg-surface-container-lowest overflow-x-hidden">
+    <div class="flex flex-col w-full">
+
+      <!-- ================================================================= -->
+      <!-- SECTION 1: HERO SECTION                                           -->
+      <!-- ================================================================= -->
+      <section id="hero" class="relative w-full overflow-hidden bg-[#0a0a0a] pt-4 sm:pt-4 lg:pt-4 pb-space-2xl border-b border-[#262626] scroll-mt-20">
+        <!-- Giant Background Watermark "PORTFOLIO" -->
+        <div class="pointer-events-none absolute inset-x-0 top-1 sm:top-2 select-none text-center z-0 overflow-hidden">
+          <span class="font-display-ambient text-5xl sm:text-7xl md:text-9xl lg:text-[180px] xl:text-[220px] leading-none uppercase tracking-widest text-[#181818] block font-normal opacity-80 select-none">
+            PORTFOLIO
+          </span>
+        </div>
+
+        <!-- Atmospheric Crimson Glow Behind Hero -->
+        <div class="pointer-events-none absolute top-1/2 right-1/4 -translate-y-1/2 w-[550px] h-[550px] bg-primary-container/15 rounded-full blur-[140px] ambient-glow"></div>
+
+        <div class="relative max-w-[1440px] mx-auto px-margin-mobile lg:px-margin z-10">
+          <div id="hero-grid" class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center min-h-[580px]">
+            
+            <!-- Left Side: Identity & Bio -->
+            <div id="hero-left" class="lg:col-span-7 flex flex-col items-start pt-1 lg:pt-0">
+              <div class="flex items-center gap-space-sm mb-space-sm">
+                <span class="font-label-caps text-label-caps text-primary tracking-widest uppercase font-bold">
+                  Hello, I'm
+                </span>
+                <span class="w-8 h-px bg-primary-container"></span>
+              </div>
+
+              <h1 id="hero-title" class="font-display-hero text-display-hero-mobile lg:text-display-hero uppercase tracking-tight text-on-surface mb-2 leading-none">
+                BAGUS KARANDIKA
+              </h1>
+
+              <div class="flex flex-wrap items-center gap-space-sm mb-space-md">
+                <h2 id="hero-subtitle" class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">
+                  INFORMATION SYSTEMS GRADUATE
+                </h2>
+                <div id="hero-available-badge" class="inline-flex items-center gap-1.5 px-3 py-1 bg-primary-container text-on-primary-container font-label-caps text-label-caps rounded-full shadow-[0_0_12px_rgba(200,16,46,0.45)]">
+                  <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                  AVAILABLE FOR HIRE
+                </div>
+              </div>
+
+              <p id="hero-bio" class="font-body-lg text-body-lg text-[#a1a1aa] max-w-2xl mb-space-md leading-relaxed">
+                Information Systems graduate with experience in digital solutions, application development, data, and administration.
+              </p>
+
+              <!-- Location Tag -->
+              <div id="hero-location" class="inline-flex items-center gap-2 px-space-md py-space-xs bg-[#141414] border border-[#262626] rounded-full mb-space-lg">
+                <span class="text-primary text-[16px]">📍</span>
+                <span class="font-body-sm text-body-sm text-on-surface font-medium">Based in Lampung, Indonesia</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="font-code-snippet text-secondary text-xs uppercase">GMT+7</span>
+              </div>
+
+              <!-- CTAs -->
+              <div id="hero-ctas" class="flex flex-wrap items-center gap-3 w-full sm:w-auto mb-4">
+                <a href="assets/cv/CV_Bagus_Karandika.pdf" download="CV_Bagus_Karandika.pdf" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-primary-container text-on-primary-container font-label-caps text-xs uppercase tracking-wider transition-all duration-200 hover:bg-inverse-primary shadow-[0_0_16px_rgba(200,16,46,0.4)] font-bold">
+                  <span class="material-symbols-outlined text-[16px]">download</span>
+                  Download CV
+                </a>
+                <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#141414] border border-[#262626] text-on-surface font-label-caps text-xs uppercase tracking-wider transition-colors hover:bg-[#1c1c1c] hover:border-secondary" href="#contact">
+                  Kontak Saya
+                  <span class="material-symbols-outlined text-[16px]">mail</span>
+                </a>
+              </div>
+
+              <!-- Live Metrics -->
+              <div id="hero-metrics" class="grid grid-cols-3 gap-space-md pt-space-md border-t border-[#262626] w-full max-w-xl">
+                <div class="metric-box bg-[#141414] p-2.5 sm:p-space-md border border-[#262626] spotlight-card">
+                  <div class="metric-value font-headline-lg text-lg sm:text-headline-lg font-bold text-on-surface">
+                    3.60<span class="text-primary text-xs sm:text-body-md">/4.0</span>
+                  </div>
+                  <div class="metric-label font-label-caps text-[9px] sm:text-[10px] uppercase text-secondary mt-0.5">
+                    Academic GPA
+                  </div>
+                </div>
+
+                <div class="metric-box bg-[#141414] p-2.5 sm:p-space-md border border-[#262626] spotlight-card">
+                  <div class="metric-value font-headline-lg text-lg sm:text-headline-lg font-bold text-on-surface">
+                    100<span class="text-primary text-xs sm:text-body-md">%</span>
+                  </div>
+                  <div class="metric-label font-label-caps text-[9px] sm:text-[10px] uppercase text-secondary mt-0.5">
+                    Test SLA
+                  </div>
+                </div>
+
+                <div class="metric-box bg-[#141414] p-2.5 sm:p-space-md border border-[#262626] spotlight-card">
+                  <div class="metric-value font-headline-lg text-lg sm:text-headline-lg font-bold text-on-surface">
+                    0<span class="text-primary text-xs sm:text-body-md"> Crit</span>
+                  </div>
+                  <div class="metric-label font-label-caps text-[9px] sm:text-[10px] uppercase text-secondary mt-0.5">
+                    Prod Defects
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Side: Portrait & Floating Skill Badges -->
+            <div id="hero-right" class="lg:col-span-5 relative flex justify-center items-end mt-space-lg lg:mt-0">
+              <div id="hero-photo-wrapper" class="relative w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[440px] flex flex-col items-center mx-auto">
+                <!-- Radial Backdrop -->
+                <div id="hero-backdrop-circle" class="absolute bottom-4 sm:bottom-6 w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] lg:w-[340px] lg:h-[340px] rounded-full bg-gradient-to-tr from-primary-container/20 to-transparent border border-[#262626] -z-0"></div>
+
+                <!-- Profile Photo -->
+                <img 
+                  id="hero-photo-img"
+                  alt="Bagus Karandika - Information Systems & Digital Solutions" 
+                  data-lightbox
+                  class="relative z-10 w-full max-w-[260px] sm:max-w-[320px] lg:max-w-[380px] h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] filter contrast-105 transition-transform duration-300 hover:scale-[1.02]" 
+                  src="assets/images/profile-hero.png"
+                  onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuDV4DD-NBOmqbHDv1JWi00W8Cw0oWSnPH3TakLmo5vbJ1A5xVzb3SCrr22UEhPWb_EEzqiHYchLWeZAZEi1iOtX1mzh43D3MpRbA-Tvr78zMABdRy3Y4UdQdMNhzMeh5w-tQ0Z4AtyEUC3VuVcEVEk7CQn-wu3HRrk1HcmBlODO9mI-Hc_yMwx71u2KDhcAqn-Pz3fv6uQkuLYYu7qi11l3en5spYCVZ0VkkyUxPok7H7f11Dv_JvJMTPfRlj6s--kmIJk'"
+                >
+
+                <!-- Floating Badge 1: Digital Solutions -->
+                <div class="floating-badge badge-1 absolute top-2 -left-2 sm:-left-6 lg:-left-10 z-20 bg-[#141414]/95 border border-[#262626] backdrop-blur-md px-2.5 sm:px-4 py-1.5 sm:py-2.5 shadow-xl flex items-center gap-2 sm:gap-3 rounded">
+                  <div class="badge-icon w-5 h-5 sm:w-6 sm:h-6 bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-[10px] sm:text-xs">+</div>
+                  <div>
+                    <div class="badge-title font-headline-md text-xs sm:text-sm font-bold text-on-surface leading-tight">Digital Solutions</div>
+                    <div class="badge-subtitle font-code-snippet text-[9px] sm:text-[11px] text-secondary">Web, Mobile & Business App</div>
+                  </div>
+                </div>
+
+                <!-- Floating Badge 2: Web & Mobile Dev -->
+                <div class="floating-badge badge-2 absolute top-1/2 -right-2 sm:-right-4 lg:-right-6 z-20 bg-[#141414]/95 border border-[#262626] backdrop-blur-md px-2.5 sm:px-4 py-1.5 sm:py-2.5 shadow-xl flex items-center gap-2 sm:gap-3 rounded">
+                  <div class="badge-icon w-5 h-5 sm:w-6 sm:h-6 bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-[10px] sm:text-xs">+</div>
+                  <div>
+                    <div class="badge-title font-headline-md text-xs sm:text-sm font-bold text-on-surface leading-tight">Web & Mobile Dev</div>
+                    <div class="badge-subtitle font-code-snippet text-[9px] sm:text-[11px] text-secondary">Vue.js, Next.js, API</div>
+                  </div>
+                </div>
+
+                <!-- Floating Badge 3: Data Administration -->
+                <div class="floating-badge badge-3 absolute bottom-2 left-0 sm:left-2 lg:left-4 z-20 bg-[#141414]/95 border border-[#262626] backdrop-blur-md px-2.5 sm:px-4 py-1.5 sm:py-2.5 shadow-xl flex items-center gap-2 sm:gap-3 rounded">
+                  <div class="badge-icon w-5 h-5 sm:w-6 sm:h-6 bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-[10px] sm:text-xs">+</div>
+                  <div>
+                    <div class="badge-title font-headline-md text-xs sm:text-sm font-bold text-on-surface leading-tight">Data Administration</div>
+                    <div class="badge-subtitle font-code-snippet text-[9px] sm:text-[11px] text-secondary">PostgreSQL, Supabase</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 2: QA & SOFTWARE TESTING WORKFLOW                         -->
+      <!-- ================================================================= -->
+      <section class="w-full bg-[#0a0a0a] py-space-2xl border-b border-[#262626]" id="workflow">
+        <div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest font-bold">
+                  // QA & SOFTWARE TESTING
+                </span>
+              </div>
+              <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">
+                Engineering Zero-Defect Delivery
+              </h2>
+            </div>
+            <p class="font-body-md text-body-md text-secondary max-w-lg mt-space-sm md:mt-0 italic">
+              "Quality starts with understanding what the system should do — and verifying that it actually does."
+            </p>
+          </div>
+
+          <!-- 4 Visual Workflow Steps -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            
+            <!-- Phase 1 -->
+            <div class="bg-[#141414] border border-[#262626] p-4 sm:p-space-lg relative flex flex-col justify-between hover:border-primary-container/60 transition-all group spotlight-card">
+              <div class="mb-space-md">
+                <div class="flex items-center justify-between mb-space-md">
+                  <span class="font-code-snippet text-xs text-primary font-bold">PHASE // 01</span>
+                  <span class="text-2xl">🔍</span>
+                </div>
+                <h3 class="font-headline-md text-base sm:text-headline-md font-bold text-on-surface mb-space-xs group-hover:text-primary transition-colors">
+                  1. Understand Requirement
+                </h3>
+                <p class="font-body-sm text-xs sm:text-body-sm text-[#a1a1aa] leading-relaxed">
+                  Membedah dokumen spesifikasi, user story, dan business logic. Merumuskan skenario pengujian acceptance criteria secara terperinci sebelum pengkodean dimulai.
+                </p>
+              </div>
+              <div class="pt-space-sm border-t border-[#262626]/70 flex items-center justify-between">
+                <span class="font-code-snippet text-[10px] sm:text-[11px] text-secondary uppercase">Artifact</span>
+                <span class="font-code-snippet text-[10px] sm:text-[11px] text-primary font-semibold">Test Matrix & PRD</span>
+              </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="bg-[#141414] border border-[#262626] p-4 sm:p-space-lg relative flex flex-col justify-between hover:border-primary-container/60 transition-all group spotlight-card">
+              <div class="mb-space-md">
+                <div class="flex items-center justify-between mb-space-md">
+                  <span class="font-code-snippet text-xs text-primary font-bold">PHASE // 02</span>
+                  <span class="text-2xl">🛠️</span>
+                </div>
+                <h3 class="font-headline-md text-base sm:text-headline-md font-bold text-on-surface mb-space-xs group-hover:text-primary transition-colors">
+                  2. Develop & Test Scenario
+                </h3>
+                <p class="font-body-sm text-xs sm:text-body-sm text-[#a1a1aa] leading-relaxed">
+                  Menyusun suite test case positif & negatif, boundary value analysis, integrasi skema database, serta menyiapkan skrip automasi dan lingkungan uji.
+                </p>
+              </div>
+              <div class="pt-space-sm border-t border-[#262626]/70 flex items-center justify-between">
+                <span class="font-code-snippet text-[10px] sm:text-[11px] text-secondary uppercase">Artifact</span>
+                <span class="font-code-snippet text-[10px] sm:text-[11px] text-primary font-semibold">Test Suites / Mock Data</span>
+              </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="bg-[#141414] border border-[#262626] p-4 sm:p-space-lg relative flex flex-col justify-between hover:border-primary-container/60 transition-all group spotlight-card">
+              <div class="mb-space-md">
+                <div class="flex items-center justify-between mb-space-md">
+                  <span class="font-code-snippet text-xs text-primary font-bold">PHASE // 03</span>
+                  <span class="text-2xl">🐛</span>
+                </div>
+                <h3 class="font-headline-md text-base sm:text-headline-md font-bold text-on-surface mb-space-xs group-hover:text-primary transition-colors">
+                  3. Find & Analyze Error
+                </h3>
+                <p class="font-body-sm text-xs sm:text-body-sm text-[#a1a1aa] leading-relaxed">
+                  Eksekusi pengujian manual fungsional, black-box testing, dan penelusuran regresi. Menemukan bottleneck, reproduksi bug, dan logging severity level.
+                </p>
+              </div>
+              <div class="pt-space-sm border-t border-[#262626]/70 flex items-center justify-between">
+                <span class="font-code-snippet text-[10px] sm:text-[11px] text-secondary uppercase">Artifact</span>
+                <span class="font-code-snippet text-[10px] sm:text-[11px] text-primary font-semibold">Bug Incident Reports</span>
+              </div>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="bg-[#141414] border border-[#262626] p-4 sm:p-space-lg relative flex flex-col justify-between hover:border-primary-container/60 transition-all group spotlight-card">
+              <div class="mb-space-md">
+                <div class="flex items-center justify-between mb-space-md">
+                  <span class="font-code-snippet text-xs text-primary font-bold">PHASE // 04</span>
+                  <span class="text-2xl">✅</span>
+                </div>
+                <h3 class="font-headline-md text-base sm:text-headline-md font-bold text-on-surface mb-space-xs group-hover:text-primary transition-colors">
+                  4. Fix & Retest
+                </h3>
+                <p class="font-body-sm text-xs sm:text-body-sm text-[#a1a1aa] leading-relaxed">
+                  Verifikasi ulang fix bug bersama developer, eksekusi re-test, User Acceptance Testing (UAT) dengan user, hingga status deployment siap rilis.
+                </p>
+              </div>
+              <div class="pt-space-sm border-t border-[#262626]/70 flex items-center justify-between">
+                <span class="font-code-snippet text-[10px] sm:text-[11px] text-secondary uppercase">Artifact</span>
+                <span class="font-code-snippet text-[10px] sm:text-[11px] text-primary font-semibold">UAT Sign-off & Release</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 3: COMPREHENSIVE SKILLS                                   -->
+      <!-- ================================================================= -->
+      <section class="w-full bg-[#0a0a0a] py-space-2xl border-b border-[#262626]" id="skills">
+        <div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+          <div class="flex items-center gap-space-sm mb-space-xs">
+            <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest font-bold">
+              // TECHNICAL & PROFESSIONAL ARSENAL
+            </span>
+            <span class="w-12 h-px bg-primary-container"></span>
+          </div>
+
+          <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mb-space-xl">
+            Comprehensive Skills Matrix
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+            
+            <!-- Category 1: QA & Testing -->
+            <div class="bg-[#141414] border border-[#262626] p-space-lg flex flex-col justify-between spotlight-card">
+              <div>
+                <div class="flex items-center gap-2 mb-space-sm pb-space-xs border-b border-[#262626]">
+                  <span class="material-symbols-outlined text-primary text-[20px]">fact_check</span>
+                  <h3 class="font-headline-md text-[17px] font-bold text-on-surface uppercase">QA & Testing</h3>
+                </div>
+                <div class="font-code-snippet text-xs text-primary mb-space-sm font-semibold">// HARD SKILL</div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Manual Testing</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Black-box Testing</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Test Case Formulation</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">UAT Execution</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Regression Testing</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Bug Debugging</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category 2: Development -->
+            <div class="bg-[#141414] border border-[#262626] p-space-lg flex flex-col justify-between spotlight-card">
+              <div>
+                <div class="flex items-center gap-2 mb-space-sm pb-space-xs border-b border-[#262626]">
+                  <span class="material-symbols-outlined text-primary text-[20px]">code</span>
+                  <h3 class="font-headline-md text-[17px] font-bold text-on-surface uppercase">Development</h3>
+                </div>
+                <div class="font-code-snippet text-xs text-primary mb-space-sm font-semibold">// HARD SKILL</div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">HTML / CSS / JS</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Vue.js</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Next.js</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Capacitor Mobile</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">REST API Architecture</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Tailwind CSS</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category 3: Data & Tools -->
+            <div class="bg-[#141414] border border-[#262626] p-space-lg flex flex-col justify-between spotlight-card">
+              <div>
+                <div class="flex items-center gap-2 mb-space-sm pb-space-xs border-b border-[#262626]">
+                  <span class="material-symbols-outlined text-primary text-[20px]">database</span>
+                  <h3 class="font-headline-md text-[17px] font-bold text-on-surface uppercase">Data & Tools</h3>
+                </div>
+                <div class="font-code-snippet text-xs text-primary mb-space-sm font-semibold">// HARD SKILL</div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">PostgreSQL</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Supabase</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Data Processing</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Ms. Excel (Advanced)</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Git / GitHub</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">AI Productivity Tools</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category 4: Professional Skills -->
+            <div class="bg-[#141414] border border-[#262626] p-space-lg flex flex-col justify-between spotlight-card">
+              <div>
+                <div class="flex items-center gap-2 mb-space-sm pb-space-xs border-b border-[#262626]">
+                  <span class="material-symbols-outlined text-primary text-[20px]">psychology</span>
+                  <h3 class="font-headline-md text-[17px] font-bold text-on-surface uppercase">Professional</h3>
+                </div>
+                <div class="font-code-snippet text-xs text-primary mb-space-sm font-semibold">// SOFT SKILLS</div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Problem Solving</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Analytical Thinking</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Technical Communication</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Cross-team Work</span>
+                  <span class="px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-on-surface font-code-snippet text-xs hover:border-primary transition-colors">Public Speaking</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 4: SELECTED PROJECTS                                      -->
+      <!-- ================================================================= -->
+      <section class="w-full bg-[#0a0a0a] py-space-2xl border-b border-[#262626]" id="projects">
+        <div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl">
+            <div>
+              <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest block mb-2 font-bold">
+                // SELECTED PROJECTS
+              </span>
+              <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">
+                Quality Verified Deployments
+              </h2>
+            </div>
+            <p class="font-body-md text-body-md text-secondary max-w-md mt-space-sm md:mt-0">
+              Dokumentasi pengujian komprehensif, arsitektur data teruji, dan eliminasi cacat fungsional pada aplikasi nyata.
+            </p>
+          </div>
+
+          <!-- Bento Grid Projects -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+            
+            <!-- CARD 01: E-Dispo (Blueprint Card) -->
+            <div class="lg:col-span-12 bg-[#141414] border border-[#262626] p-space-lg lg:p-space-xl flex flex-col justify-between hover:border-primary-container/60 transition-all spotlight-card">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+                <div class="lg:col-span-7">
+                  <div class="flex flex-wrap items-center gap-2 mb-space-sm">
+                    <span class="font-code-snippet text-code-snippet text-primary font-bold tracking-wider uppercase">PROJECT // 01</span>
+                    <span class="px-2.5 py-0.5 bg-[#1c1c1c] text-on-surface font-label-caps text-label-caps uppercase border border-[#262626]">Government / E-Office</span>
+                    <span class="px-2.5 py-0.5 bg-primary-container/20 text-primary font-code-snippet text-xs font-semibold">BPKAD Lampung Timur</span>
+                  </div>
+                  <h3 class="font-headline-xl text-2xl lg:text-3xl font-bold text-on-surface mb-space-xs">
+                    E-Dispo | Digital Disposition System
+                  </h3>
+                  <p class="font-body-md text-body-md text-[#a1a1aa] mb-space-md leading-relaxed">
+                    Sistem informasi persuratan dan disposisi elektronik dinas untuk Badan Pengelola Keuangan dan Aset Daerah (BPKAD) Lampung Timur. Menggantikan proses manual dengan validasi alur birokrasi berjenjang, penomoran surat otomatis, dan otorisasi berkas secara real-time.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-space-md">
+                    <span class="px-3 py-1 bg-[#111111] border border-[#262626] font-code-snippet text-xs text-on-surface">Black-box Testing</span>
+                    <span class="px-3 py-1 bg-[#111111] border border-[#262626] font-code-snippet text-xs text-on-surface">Role Hierarchy Validation</span>
+                    <span class="px-3 py-1 bg-[#111111] border border-[#262626] font-code-snippet text-xs text-on-surface">UAT Approved</span>
+                    <span class="px-3 py-1 bg-[#111111] border border-[#262626] font-code-snippet text-xs text-on-surface">Vue.js / PostgreSQL</span>
+                  </div>
+                  <button data-dossier-target="edispo" class="inline-flex items-center gap-2 font-label-caps text-label-caps text-primary uppercase tracking-wider hover:text-on-surface transition-colors cursor-pointer py-1">
+                    <span>Inspect Full Verification Dossier</span>
+                    <span class="material-symbols-outlined text-[16px]">north_east</span>
+                  </button>
+                </div>
+
+                <!-- Stylized System Blueprint Card Visual -->
+                <div class="lg:col-span-5 bg-[#0e0e0e] border border-[#262626] p-space-md shadow-2xl rounded-lg font-code-snippet">
+                  <div class="flex items-center justify-between pb-space-xs border-b border-[#262626] mb-space-sm text-xs">
+                    <div class="flex items-center gap-1.5">
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-[#353534]"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-[#353534]"></span>
+                      <span class="text-[#a1a1aa] ml-2 font-bold uppercase">edispo_audit_flow.spec</span>
+                    </div>
+                    <span class="text-primary font-bold">STATUS: PASSED</span>
+                  </div>
+                  <div class="space-y-2 text-xs">
+                    <div class="p-2 bg-[#141414] border border-[#262626]/60 rounded">
+                      <div class="text-secondary mb-0.5">// TEST SUITE: SURAT_MASUK_VALIDATION</div>
+                      <div class="text-on-surface font-semibold">&gt; Hierarchy: Operator -&gt; Kasubbid -&gt; Kabid -&gt; Kepala Badan</div>
+                      <div class="text-primary text-[11px] mt-1">✔ 18/18 Boundary constraints verified</div>
+                    </div>
+                    <div class="p-2 bg-[#141414] border border-[#262626]/60 rounded">
+                      <div class="text-secondary mb-0.5">// DATA INTEGRITY &amp; SECURITY</div>
+                      <div class="text-on-surface font-semibold">&gt; RLS (Row-Level Security) &amp; Digital Signature Verification</div>
+                      <div class="text-primary text-[11px] mt-1">✔ Zero authorization leak / 0 Critical bug</div>
+                    </div>
+                    <div class="flex items-center justify-between px-2 py-1.5 bg-[#181818] border border-primary-container/30 text-[11px]">
+                      <span class="text-secondary">UAT Sign-off:</span>
+                      <span class="text-on-surface font-bold">BPKAD Kab. Lampung Timur</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 02: Smart Pesantren Platform -->
+            <div class="lg:col-span-7 bg-[#141414] border border-[#262626] p-space-lg flex flex-col justify-between hover:border-primary-container/60 transition-all group spotlight-card">
+              <div>
+                <div class="flex flex-wrap items-center justify-between mb-space-sm gap-2">
+                  <span class="font-code-snippet text-code-snippet text-primary font-bold uppercase">PROJECT // 02</span>
+                  <span class="px-2.5 py-0.5 bg-[#1c1c1c] text-on-surface font-label-caps text-label-caps uppercase border border-[#262626]">Edu Tech Mobile & Web</span>
+                </div>
+                <h3 class="font-headline-lg text-headline-lg text-on-surface mb-space-xs group-hover:text-primary transition-colors">
+                  Smart Pesantren | Modern Islamic Platform
+                </h3>
+                <p class="font-body-md text-body-md text-[#a1a1aa] mb-space-md leading-relaxed">
+                  Platform manajemen terpadu santri, administrasi akademik, tracking setoran hafalan, dan modul kedisiplinan secara real-time. Melalui pengujian multi-role access (Admin, Ustadz, Wali) dan stabilitas pelaporan database.
+                </p>
+                
+                <!-- 16:9 Curved Frame with Screenshot -->
+                <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-[#0a0a0a] border border-[#262626] mb-space-md shadow-2xl">
+                  <img 
+                    alt="Smart Pesantren Modern Web Dashboard Mockup" 
+                    data-lightbox
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    src="assets/images/smart-pesantren.png"
+                    onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuBd-ElzjOElXILe7joSs1LsxHtaATFvqhSaZSsPn9FpxbJ-AUnq1RjiZwNRZ3FOVa3y79uGV-KauDaNeredxSm_XkabaNpnj6CuSMpP0DLaaZZiVJ-Y74Yi7E9jkzJVXuZ5n_oZR3Nr7uiNG6Lwt1CP9Pw4yHkkYy0QJui64qoy0EA1GQWU3xTpElvOaLYzruw7GV16uRgsgGlXrPGGNDoP1iFJm7NQIK0gvhIrdMNTie7vCZ1Ss4DSrNV_jv1aU_SNGKI'"
+                  >
+                  <div class="absolute top-3 left-3 px-3 py-1 bg-[#0a0a0a]/85 border border-[#262626] backdrop-blur-sm flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                    <span class="font-code-snippet text-[11px] text-on-surface font-semibold">UAT 98.4% PASS RATE</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex flex-wrap gap-2 mb-space-sm">
+                  <span class="px-2.5 py-1 bg-[#111111] border border-[#262626] font-code-snippet text-xs text-on-surface">Next.js / Vue.js</span>
+                  <span class="px-2.5 py-1 bg-[#111111] border border-[#262626] font-code-snippet text-xs text-on-surface">Supabase Auth</span>
+                  <span class="px-2.5 py-1 bg-[#111111] border border-[#262626] font-code-snippet text-xs text-on-surface">Academic Analytics</span>
+                </div>
+                <div class="flex justify-end pt-2">
+                  <button data-dossier-target="pesantren" class="inline-flex items-center gap-1 font-label-caps text-label-caps text-primary uppercase hover:text-on-surface transition-colors cursor-pointer py-1">
+                    <span>View Case Study</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 03: GS Baby Care POS -->
+            <div class="lg:col-span-5 bg-[#141414] border border-[#262626] p-space-lg flex flex-col justify-between hover:border-primary-container/60 transition-all group spotlight-card">
+              <div>
+                <div class="flex flex-wrap items-center justify-between mb-space-sm gap-2">
+                  <span class="font-code-snippet text-code-snippet text-primary font-bold uppercase">PROJECT // 03</span>
+                  <span class="px-2.5 py-0.5 bg-[#1c1c1c] text-on-surface font-label-caps text-label-caps uppercase border border-[#262626]">Retail / POS App</span>
+                </div>
+                <h3 class="font-headline-lg text-headline-lg text-on-surface mb-space-xs group-hover:text-primary transition-colors">
+                  GS Baby Care POS System
+                </h3>
+                <p class="font-body-md text-body-md text-[#a1a1aa] mb-space-md leading-relaxed">
+                  Aplikasi kasir dan manajemen inventaris toko retail perlengkapan bayi. Pengujian fokus pada integritas data transaksi offline-to-online, penghitungan stok real-time, dan kalkulasi diskon tanpa diskrepansi.
+                </p>
+                
+                <!-- Mockup Housing Screenshot -->
+                <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-[#0a0a0a] border border-[#262626] mb-space-md shadow-2xl group/img">
+                  <img 
+                    src="assets/images/babycare-pos.png" 
+                    data-lightbox
+                    onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuCsd0N_WNdMoDiM6-ovW5b83I67TgdeO52aQv4LgcZTen395EnRn2pDmpOHcr0e1UCMygqDwMswmQ1pVoJSTV2VPpHJeJaNe_CtR51SJfeSg1e5_JFlh_ntMG6lq7V9HztLf1yATcqksn9fitT1dJMYubAZ6Eol3TPaprdljhDObma8U5a9tC1IcwRsYLs9kruuNdEC_dto6c52Le1aX_d4ia6EbvTWvCLcrBVwIN8HctQFap-i534J5LtY5sRVXQ7AA-8'"
+                    alt="GS Baby Care POS System Application Interface" 
+                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  >
+                  <div class="absolute top-3 left-3 px-3 py-1 bg-[#0a0a0a]/85 border border-[#262626] backdrop-blur-sm flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+                    <span class="font-code-snippet text-[11px] text-on-surface font-semibold">POS v1.0 VERIFIED</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <!-- 47/47 Test Cases Badge -->
+                <div class="p-space-sm bg-[#111111] border border-[#262626] mb-space-sm flex items-center justify-between">
+                  <span class="font-code-snippet text-xs text-secondary font-semibold">RELIABILITY METRIC</span>
+                  <span class="px-2 py-0.5 bg-primary-container text-on-primary-container font-code-snippet text-xs font-bold rounded">
+                    47/47 Test Cases Passed
+                  </span>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-space-sm">
+                  <span class="px-2.5 py-1 bg-[#111111] border border-[#262626] font-code-snippet text-xs text-on-surface">Capacitor Mobile</span>
+                  <span class="px-2.5 py-1 bg-[#111111] border border-[#262626] font-code-snippet text-xs text-on-surface">Stress Tested</span>
+                  <span class="px-2.5 py-1 bg-[#111111] border border-[#262626] font-code-snippet text-xs text-on-surface">PostgreSQL</span>
+                </div>
+                <div class="flex justify-end pt-1">
+                  <button data-dossier-target="babycare" class="inline-flex items-center gap-1 font-label-caps text-label-caps text-primary uppercase hover:text-on-surface transition-colors cursor-pointer py-1">
+                    <span>Architecture Details</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 5: EXPERIENCE & EDUCATION                                 -->
+      <!-- ================================================================= -->
+      <section class="w-full bg-[#0a0a0a] py-space-2xl border-b border-[#262626]" id="experience">
+        <div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl">
+            
+            <!-- Left Side: Experience -->
+            <div class="lg:col-span-7 flex flex-col">
+              <div class="flex items-center gap-space-sm mb-space-xs">
+                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest font-bold">
+                  // TRACK RECORD
+                </span>
+                <span class="w-12 h-px bg-primary-container"></span>
+              </div>
+
+              <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mb-space-xl">
+                Work Experience
+              </h2>
+
+              <div class="space-y-space-md">
+                <!-- Exp 1 -->
+                <div class="bg-[#141414] border border-[#262626] p-space-lg hover:border-primary-container/60 transition-all spotlight-card">
+                  <div class="flex flex-wrap items-center justify-between gap-2 mb-space-xs">
+                    <h3 class="font-headline-md text-lg font-bold text-on-surface">
+                      BPKAD Kabupaten Lampung Timur
+                    </h3>
+                    <span class="px-2.5 py-0.5 bg-primary-container/20 text-primary font-code-snippet text-xs font-semibold">
+                      Jan — Feb 2026
+                    </span>
+                  </div>
+                  <div class="text-primary font-medium text-sm mb-space-xs">
+                    Intern — Perbendaharaan (Pengembangan & Pengujian E-Dispo)
+                  </div>
+                  <p class="font-body-md text-body-md text-[#a1a1aa] leading-relaxed">
+                    Bertanggung jawab pada perancangan arsitektur data, implementasi modul surat disposisi, serta pengujian fungsional black-box menyeluruh hingga mendapatkan approval UAT stakeholder dinas.
+                  </p>
+                </div>
+
+                <!-- Exp 2 -->
+                <div class="bg-[#141414] border border-[#262626] p-space-lg hover:border-primary-container/60 transition-all spotlight-card">
+                  <div class="flex flex-wrap items-center justify-between gap-2 mb-space-xs">
+                    <h3 class="font-headline-md text-lg font-bold text-on-surface">
+                      Freelance Academic & IT Services
+                    </h3>
+                    <span class="px-2.5 py-0.5 bg-[#1c1c1c] text-[#a1a1aa] font-code-snippet text-xs font-semibold">
+                      Jul 2024 — Sekarang
+                    </span>
+                  </div>
+                  <div class="text-on-surface font-medium text-sm mb-space-xs">
+                    Developer & IT Support
+                  </div>
+                  <p class="font-body-md text-body-md text-[#a1a1aa] leading-relaxed">
+                    Menyediakan layanan pengembangan solusi web, pengolahan data terstruktur, troubleshooting teknis, dan pengujian kualitas sistem bagi klien institusi serta perorangan.
+                  </p>
+                </div>
+
+                <!-- Exp 3 -->
+                <div class="bg-[#141414] border border-[#262626] p-space-lg hover:border-primary-container/60 transition-all spotlight-card">
+                  <div class="flex flex-wrap items-center justify-between gap-2 mb-space-xs">
+                    <h3 class="font-headline-md text-lg font-bold text-on-surface">
+                      MI Al Asror Sekampung
+                    </h3>
+                    <span class="px-2.5 py-0.5 bg-[#1c1c1c] text-[#a1a1aa] font-code-snippet text-xs font-semibold">
+                      Jul 2022 — Mar 2026
+                    </span>
+                  </div>
+                  <div class="text-on-surface font-medium text-sm mb-space-xs">
+                    Staf Administrasi & Pengajar
+                  </div>
+                  <p class="font-body-md text-body-md text-[#a1a1aa] leading-relaxed">
+                    Mengelola sistem data administratif kependidikan, digitalisasi berkas siswa, serta pengajaran materi formal dengan manajemen dokumentasi yang presisi.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Education -->
+            <div class="lg:col-span-5 flex flex-col">
+              <div class="flex items-center gap-space-sm mb-space-xs">
+                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest font-bold">
+                  // ACADEMICS
+                </span>
+                <span class="w-12 h-px bg-primary-container"></span>
+              </div>
+
+              <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mb-space-xl">
+                Education
+              </h2>
+
+              <div class="bg-[#141414] border border-[#262626] p-space-lg hover:border-primary-container/60 transition-all spotlight-card">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-space-xs">
+                  <h3 class="font-headline-md text-lg font-bold text-on-surface">
+                    Universitas Nahdlatul Ulama Lampung
+                  </h3>
+                  <span class="px-2.5 py-0.5 bg-primary-container/20 text-primary font-code-snippet text-xs font-semibold">
+                    2022 — 2026
+                  </span>
+                </div>
+                <div class="text-primary font-medium text-sm mb-space-xs">
+                  S1 Sistem Informasi
+                </div>
+                <p class="font-body-md text-body-md text-[#a1a1aa] mb-space-md leading-relaxed">
+                  Fokus pada Rekayasa Perangkat Lunak, Jaminan Mutu Sistem Informasi (QA), Desain Basis Data Relasional, dan Algoritma Pemrograman.
+                </p>
+
+                <!-- GPA Highlight Card -->
+                <div class="p-space-md bg-[#0a0a0a] border border-[#262626] flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-[22px]">verified</span>
+                    <span class="font-body-sm text-sm text-on-surface">Indeks Prestasi Kumulatif (IPK)</span>
+                  </div>
+                  <div class="font-headline-md text-lg font-bold text-primary">
+                    3.60 <span class="text-xs text-secondary">/ 4.00</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 6: ORGANIZATION, CERTIFICATIONS & ACHIEVEMENTS            -->
+      <!-- ================================================================= -->
+      <section class="w-full bg-[#0a0a0a] py-space-2xl border-b border-[#262626]" id="achievements">
+        <div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+          <div class="flex items-center gap-space-sm mb-space-xs">
+            <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest font-bold">
+              // CREDENTIALS & LEADERSHIP
+            </span>
+            <span class="w-12 h-px bg-primary-container"></span>
+          </div>
+
+          <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mb-space-xl">
+            Organization, Certifications & Achievements
+          </h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+            
+            <!-- Block 1: Organization -->
+            <div class="bg-[#141414] border border-[#262626] p-space-lg flex flex-col justify-between hover:border-primary-container/60 transition-all spotlight-card">
+              <div>
+                <div class="flex items-center gap-2 mb-space-md pb-space-xs border-b border-[#262626]">
+                  <span class="material-symbols-outlined text-primary text-[22px]">groups</span>
+                  <h3 class="font-headline-md text-lg font-bold text-on-surface uppercase">Organization</h3>
+                </div>
+                <div class="p-space-sm bg-[#111111] border border-[#262626] mb-space-md">
+                  <div class="flex items-center justify-between text-xs text-secondary font-code-snippet mb-1">
+                    <span>LEADERSHIP</span>
+                    <span>Jul 2021 — Agu 2026</span>
+                  </div>
+                  <div class="font-headline-md text-base font-bold text-on-surface mb-1">
+                    Pesantren Modern Roudhotur Ridwan
+                  </div>
+                  <div class="text-primary text-xs font-semibold mb-2">
+                    Pengurus & Tenaga Pendidik
+                  </div>
+                  <p class="font-body-sm text-xs text-[#a1a1aa] leading-relaxed">
+                    Mengoordinasikan divisi Bahasa, Publikasi Media, & Dokumentasi, memimpin kegiatan komunikasi santri, serta pengorganisasian kurikulum pendidikan terpadu.
+                  </p>
+                </div>
+              </div>
+              <div class="font-code-snippet text-[11px] text-secondary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                <span>Active 5-Year Leadership Track</span>
+              </div>
+            </div>
+
+            <!-- Block 2: Certifications -->
+            <div class="bg-[#141414] border border-[#262626] p-space-lg flex flex-col justify-between hover:border-primary-container/60 transition-all spotlight-card">
+              <div>
+                <div class="flex items-center gap-2 mb-space-md pb-space-xs border-b border-[#262626]">
+                  <span class="material-symbols-outlined text-primary text-[22px]">workspace_premium</span>
+                  <h3 class="font-headline-md text-lg font-bold text-on-surface uppercase">Certifications</h3>
+                </div>
+                <div class="space-y-space-sm mb-space-md">
+                  <!-- Cert 1 -->
+                  <div class="p-space-sm bg-[#111111] border border-[#262626]">
+                    <div class="flex items-center justify-between text-xs font-code-snippet text-primary font-semibold mb-1">
+                      <span>UNU LAMPUNG // 2025</span>
+                      <span>EQ-TOEFL: 450</span>
+                    </div>
+                    <div class="font-headline-md text-sm font-bold text-on-surface">
+                      English Proficiency Test
+                    </div>
+                    <div class="font-body-sm text-xs text-[#a1a1aa]">
+                      Standar kompetensi kemampuan bahasa Inggris profesional & teknis.
+                    </div>
+                  </div>
+                  <!-- Cert 2 -->
+                  <div class="p-space-sm bg-[#111111] border border-[#262626]">
+                    <div class="flex items-center justify-between text-xs font-code-snippet text-primary font-semibold mb-1">
+                      <span>BPKAD LAMPUNG TIMUR // 2026</span>
+                      <span>OFFICIAL</span>
+                    </div>
+                    <div class="font-headline-md text-sm font-bold text-on-surface">
+                      Sertifikat Praktik Kerja Magang
+                    </div>
+                    <div class="font-body-sm text-xs text-[#a1a1aa]">
+                      Verifikasi kontribusi pengembangan & uji modul sistem disposisi E-Dispo.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="font-code-snippet text-[11px] text-secondary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                <span>Verified Official Credentials</span>
+              </div>
+            </div>
+
+            <!-- Block 3: Achievements -->
+            <div class="bg-[#141414] border border-[#262626] p-space-lg flex flex-col justify-between hover:border-primary-container/60 transition-all spotlight-card">
+              <div>
+                <div class="flex items-center gap-2 mb-space-md pb-space-xs border-b border-[#262626]">
+                  <span class="material-symbols-outlined text-primary text-[22px]">military_tech</span>
+                  <h3 class="font-headline-md text-lg font-bold text-on-surface uppercase">Achievements</h3>
+                </div>
+                <div class="space-y-space-sm mb-space-md">
+                  <!-- Honor 1 -->
+                  <div class="p-space-sm bg-[#111111] border border-[#262626]">
+                    <div class="flex items-center justify-between text-xs font-code-snippet text-primary font-semibold mb-1">
+                      <span>🏆 1ST PLACE // 2021</span>
+                      <span class="text-secondary">Foundation Level</span>
+                    </div>
+                    <div class="font-headline-md text-sm font-bold text-on-surface">
+                      Juara 1 Pidato Tingkat Yayasan
+                    </div>
+                    <div class="font-body-sm text-xs text-[#a1a1aa]">
+                      Kompetisi retorika, public speaking, dan artikulasi gagasan terstruktur.
+                    </div>
+                  </div>
+                  <!-- Honor 2 -->
+                  <div class="p-space-sm bg-[#111111] border border-[#262626]">
+                    <div class="flex items-center justify-between text-xs font-code-snippet text-primary font-semibold mb-1">
+                      <span>🏆 2ND PLACE // 2022</span>
+                      <span class="text-secondary">Regional</span>
+                    </div>
+                    <div class="font-headline-md text-sm font-bold text-on-surface">
+                      Juara 2 Lomba Baca Kitab Kuning
+                    </div>
+                    <div class="font-body-sm text-xs text-[#a1a1aa]">
+                      Uji analisis gramatika naskah literatur klasik Arab & pemahaman konten.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="font-code-snippet text-[11px] text-secondary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                <span>Excellence in Communication & Analytical Rigor</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 7: CALL TO ACTION & CONTACT DOSSIER                       -->
+      <!-- ================================================================= -->
+      <section class="w-full bg-[#111111] py-space-3xl relative overflow-hidden" id="contact">
+        <!-- Ambient Crimson Radial Glow -->
+        <div class="pointer-events-none absolute -bottom-20 right-0 w-[550px] h-[550px] bg-primary-container/15 rounded-full blur-[140px] ambient-glow"></div>
+
+        <div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center">
+            
+            <!-- Left Side: Typographic Invitation -->
+            <div class="lg:col-span-6">
+              <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest block mb-space-sm font-bold">
+                // NEXT COLLABORATION
+              </span>
+              <h2 class="font-display-hero text-display-hero-mobile lg:text-display-hero uppercase tracking-tight text-on-surface leading-none mb-space-md">
+                LET'S WORK<br>
+                TOGETHER <span class="text-primary font-bold">✦</span>
+              </h2>
+              <p class="font-body-lg text-body-lg text-[#a1a1aa] max-w-lg mb-space-xl leading-relaxed">
+                Terbuka untuk peluang di bidang teknologi, pengembangan aplikasi, data, dan digitalisasi. Siap berkontribusi melalui kemampuan analisis, problem solving, dan pengembangan solusi digital.
+              </p>
+
+              <!-- Download CV Button -->
+              <a href="assets/cv/CV_Bagus_Karandika.pdf" download="CV_Bagus_Karandika.pdf" class="inline-flex items-center gap-3 px-10 py-5 bg-primary-container text-on-primary-container font-headline-md text-headline-md uppercase tracking-wider font-bold transition-all duration-200 hover:bg-inverse-primary hover:scale-[1.02] shadow-[0_0_24px_rgba(200,16,46,0.5)]">
+                <span class="material-symbols-outlined text-[24px]">download</span>
+                [ DOWNLOAD CV ]
+              </a>
+            </div>
+
+            <!-- Right Side: Direct Channel Dossier Grid -->
+            <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+              
+              <!-- Email Node -->
+              <div class="bg-[#141414] border border-[#262626] p-space-lg flex flex-col justify-between group hover:border-primary-container transition-all spotlight-card">
+                <div>
+                  <div class="flex items-center justify-between mb-space-md">
+                    <div class="w-10 h-10 bg-[#0a0a0a] border border-[#262626] flex items-center justify-center text-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+                      <span class="material-symbols-outlined text-[22px]">mail</span>
+                    </div>
+                    <button onclick="copyToClipboard('karandika6@gmail.com', 'Email')" class="text-xs text-secondary hover:text-primary transition-colors flex items-center gap-1 font-mono">
+                      <span class="material-symbols-outlined text-sm">content_copy</span> Salin
+                    </button>
+                  </div>
+                  <div class="font-label-caps text-label-caps uppercase text-secondary mb-1">Direct Electronic Mail</div>
+                  <div class="font-body-md text-body-md font-semibold text-on-surface break-all">karandika6@gmail.com</div>
+                </div>
+                <div class="mt-space-md">
+                  <a href="mailto:karandika6@gmail.com" class="inline-flex items-center gap-1 text-primary font-label-caps text-label-caps uppercase hover:underline">
+                    <span>Send Mail</span>
+                    <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- LinkedIn Node -->
+              <a class="bg-[#141414] border border-[#262626] p-space-lg flex flex-col justify-between group hover:border-primary-container transition-all spotlight-card" href="https://linkedin.com/in/bagus-karandika-4086343ba" rel="noopener noreferrer" target="_blank">
+                <div>
+                  <div class="w-10 h-10 bg-[#0a0a0a] border border-[#262626] flex items-center justify-center text-primary mb-space-md group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+                    <span class="material-symbols-outlined text-[22px]">work</span>
+                  </div>
+                  <div class="font-label-caps text-label-caps uppercase text-secondary mb-1">Professional Network</div>
+                  <div class="font-body-md text-body-md font-semibold text-on-surface">bagus-karandika</div>
+                </div>
+                <div class="mt-space-md flex items-center gap-1 text-primary font-label-caps text-label-caps uppercase">
+                  <span>View Profile</span>
+                  <span class="material-symbols-outlined text-[14px]">north_east</span>
+                </div>
+              </a>
+
+              <!-- GitHub Node -->
+              <a class="bg-[#141414] border border-[#262626] p-space-lg flex flex-col justify-between group hover:border-primary-container transition-all spotlight-card" href="https://github.com/karandika6-lab" rel="noopener noreferrer" target="_blank">
+                <div>
+                  <div class="w-10 h-10 bg-[#0a0a0a] border border-[#262626] flex items-center justify-center text-primary mb-space-md group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+                    <span class="material-symbols-outlined text-[22px]">terminal</span>
+                  </div>
+                  <div class="font-label-caps text-label-caps uppercase text-secondary mb-1">Version Control / Code</div>
+                  <div class="font-body-md text-body-md font-semibold text-on-surface">karandika6-lab</div>
+                </div>
+                <div class="mt-space-md flex items-center gap-1 text-primary font-label-caps text-label-caps uppercase">
+                  <span>Inspect Repos</span>
+                  <span class="material-symbols-outlined text-[14px]">north_east</span>
+                </div>
+              </a>
+
+              <!-- WhatsApp Node -->
+              <div class="bg-[#141414] border border-[#262626] p-space-lg flex flex-col justify-between group hover:border-primary-container transition-all spotlight-card">
+                <div>
+                  <div class="flex items-center justify-between mb-space-md">
+                    <div class="w-10 h-10 bg-[#0a0a0a] border border-[#262626] flex items-center justify-center text-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+                      <span class="material-symbols-outlined text-[22px]">chat</span>
+                    </div>
+                    <button onclick="copyToClipboard('+6283124857868', 'Nomor WhatsApp')" class="text-xs text-secondary hover:text-primary transition-colors flex items-center gap-1 font-mono">
+                      <span class="material-symbols-outlined text-sm">content_copy</span> Salin
+                    </button>
+                  </div>
+                  <div class="font-label-caps text-label-caps uppercase text-secondary mb-1">Instant Messaging</div>
+                  <div class="font-body-md text-body-md font-semibold text-on-surface">+62 831-2485-7868</div>
+                </div>
+                <div class="mt-space-md">
+                  <a href="https://wa.me/6283124857868" rel="noopener noreferrer" target="_blank" class="inline-flex items-center gap-1 text-primary font-label-caps text-label-caps uppercase hover:underline">
+                    <span>Start WhatsApp</span>
+                    <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom Signature -->
+          <div class="mt-space-3xl pt-space-md border-t border-[#262626] flex flex-col sm:flex-row items-center justify-between gap-space-sm text-secondary font-code-snippet text-xs">
+            <div>Bagus Karandika // Portfolio PRD v3.0 Comprehensive</div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-primary-container"></span>
+              <span>Quality Engineering & Software Rigor</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- FOOTER                                                            -->
+  <!-- ================================================================= -->
+  <footer class="w-full border-t border-[#262626] bg-[#0a0a0a] py-space-xl">
+    <div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin flex flex-col md:flex-row items-center justify-between gap-space-md">
+      <div class="flex items-center gap-space-sm flex-wrap">
+        <span class="font-headline-md text-headline-md font-bold uppercase text-on-surface">BK</span>
+        <span class="font-body-sm text-xs sm:text-body-sm text-secondary">Software Quality Engineering & IT Portfolio</span>
+      </div>
+      <div class="font-code-snippet text-[11px] sm:text-xs text-secondary text-center sm:text-left">
+        SYSTEM STATUS // VERIFIED: PRODUCTION READY
+      </div>
+      <div class="font-body-sm text-[11px] sm:text-body-sm text-secondary text-center sm:text-right">
+        © 2026 Bagus Karandika. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- MODAL: PROJECT VERIFICATION DOSSIER                               -->
+  <!-- ================================================================= -->
+  <div id="project-modal" class="modal-backdrop fixed inset-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
+    <div class="modal-dialog bg-[#141414] border border-[#262626] max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-lg shadow-2xl p-6 relative">
+      <button id="close-project-modal" aria-label="Tutup" class="absolute top-4 right-4 text-secondary hover:text-on-surface p-1">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+
+      <div class="flex items-center gap-2 mb-2">
+        <span id="modal-project-status" class="px-2.5 py-0.5 bg-primary-container/20 text-primary font-code-snippet text-xs font-semibold rounded"></span>
+        <span id="modal-project-tag" class="text-secondary font-code-snippet text-xs"></span>
+      </div>
+
+      <h3 id="modal-project-title" class="font-headline-lg text-2xl font-bold text-on-surface mb-1"></h3>
+      <div id="modal-project-subtitle" class="text-sm font-semibold text-primary mb-4 font-mono"></div>
+
+      <p id="modal-project-overview" class="font-body-md text-sm text-[#a1a1aa] leading-relaxed mb-6"></p>
+
+      <div class="mb-6">
+        <div class="font-label-caps text-xs text-primary uppercase font-bold tracking-wider mb-3">
+          // Technical Architecture & Specifications
+        </div>
+        <div id="modal-project-specs" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+      </div>
+
+      <div>
+        <div class="font-label-caps text-xs text-primary uppercase font-bold tracking-wider mb-3">
+          // Verified Test Scenarios & Constraints
+        </div>
+        <ul id="modal-project-scenarios" class="space-y-2 bg-[#0e0e0e] border border-[#262626] p-4 rounded-lg"></ul>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-[#262626] flex justify-end">
+        <button onclick="document.getElementById('project-modal').classList.remove('active'); document.body.style.overflow='';" class="px-5 py-2 bg-primary-container text-on-primary-container font-label-caps text-xs uppercase font-bold">
+          Close Dossier
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- MODAL: INTERACTIVE CV VIEWER                                      -->
+  <!-- ================================================================= -->
+  <div id="cv-modal" class="modal-backdrop fixed inset-0 z-50 bg-[#0a0a0a]/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
+    <div class="modal-dialog bg-[#141414] border border-[#262626] max-w-3xl w-full max-h-[92vh] overflow-y-auto rounded-lg shadow-2xl p-6 sm:p-8 relative">
+      <div class="flex items-center justify-between pb-4 border-b border-[#262626] mb-6">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-primary-container"></span>
+          <span class="font-headline-md text-base font-bold text-on-surface">Curriculum Vitae — Bagus Karandika</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="assets/cv/CV_Bagus_Karandika.pdf" download="CV_Bagus_Karandika.pdf" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-primary-container text-on-primary-container text-xs font-mono font-bold rounded hover:bg-inverse-primary transition-colors">
+            <span class="material-symbols-outlined text-sm">download</span> Unduh PDF Asli
+          </a>
+          <button onclick="printCv()" class="inline-flex items-center gap-1 px-3 py-1.5 bg-[#1c1c1c] border border-[#262626] text-xs text-on-surface hover:border-primary font-mono rounded">
+            <span class="material-symbols-outlined text-sm">print</span> Print
+          </button>
+          <button onclick="closeCvModal()" class="p-1 text-secondary hover:text-on-surface">
+            <span class="material-symbols-outlined text-2xl">close</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- CV Paper Body -->
+      <div class="bg-[#0e0e0e] border border-[#262626] p-6 sm:p-8 rounded-lg text-on-surface space-y-6">
+        
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row justify-between items-start gap-4 pb-6 border-b border-[#262626]">
+          <div>
+            <h2 class="font-headline-xl text-3xl font-bold text-on-surface uppercase">Bagus Karandika</h2>
+            <div class="text-primary font-mono text-sm font-semibold mt-1">+62 831-2485-7868 | karandika6@gmail.com</div>
+            <div class="text-xs text-[#a1a1aa] mt-1 font-mono">
+              <a href="https://linkedin.com/in/bagus-karandika-4086343ba" target="_blank" class="hover:underline text-primary">linkedin.com/in/bagus-karandika-4086343ba</a> | 
+              <a href="https://github.com/karandika6-lab" target="_blank" class="hover:underline text-primary">github.com/karandika6-lab</a>
+            </div>
+          </div>
+          <div class="sm:text-right">
+            <div class="px-3 py-1 bg-primary-container/20 border border-primary-container/40 text-primary text-xs font-mono font-bold inline-block">
+              IPK: 3,60 / 4,00
+            </div>
+            <div class="text-[11px] text-secondary mt-1">S1 Sistem Informasi</div>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="pb-4 border-b border-[#262626]">
+          <h4 class="font-label-caps text-xs text-primary uppercase font-bold tracking-wider mb-2">// SUMMARY</h4>
+          <p class="text-xs text-[#a1a1aa] leading-relaxed">
+            Lulusan S1 Sistem Informasi dengan pengalaman kerja di lingkungan pendidikan sejak 2022, pengalaman magang di BPKAD Kabupaten Lampung Timur, serta pengalaman mengembangkan berbagai aplikasi berbasis web dan mobile. Memiliki pengalaman dalam pengembangan sistem informasi, pengelolaan data, administrasi, database, dan integrasi layanan untuk kebutuhan pemerintahan, pendidikan, pesantren, dan bisnis. Terbiasa bekerja secara disiplin, bertanggung jawab, serta berkomunikasi dan beradaptasi dengan berbagai lingkungan kerja. Aktif mengikuti perkembangan teknologi, khususnya Artificial Intelligence (AI), termasuk AI-assisted development dan AI Agent untuk meningkatkan produktivitas dan efisiensi kerja.
+          </p>
+        </div>
+
+        <!-- Education -->
+        <div class="pb-4 border-b border-[#262626]">
+          <h4 class="font-label-caps text-xs text-primary uppercase font-bold tracking-wider mb-2">// EDUCATION</h4>
+          <div class="text-xs flex justify-between font-bold text-on-surface">
+            <div>
+              <div>Universitas Nahdlatul Ulama Lampung — S1 Sistem Informasi</div>
+              <div class="text-primary font-normal mt-0.5">IPK: 3,60</div>
+            </div>
+            <span class="text-secondary font-mono">2022 – 2026</span>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="pb-4 border-b border-[#262626]">
+          <h4 class="font-label-caps text-xs text-primary uppercase font-bold tracking-wider mb-3">// EXPERIENCE</h4>
+          <div class="space-y-4 text-xs">
+            <div>
+              <div class="flex justify-between font-bold text-on-surface">
+                <span>Staf Administrasi & Pengajar | MI Al Asror Sekampung</span>
+                <span class="text-secondary font-mono">Juli 2022 – Maret 2026</span>
+              </div>
+              <div class="text-secondary text-[11px] mb-1">Sekampung, Lampung Timur, Lampung</div>
+              <ul class="list-disc list-inside space-y-0.5 text-[#a1a1aa]">
+                <li>Menangani administrasi dan dokumentasi sekolah serta mendukung kebutuhan operasional harian.</li>
+                <li>Mengelola dokumen dan data administrasi secara teliti serta membantu kegiatan akademik dan pembelajaran.</li>
+                <li>Berkoordinasi dengan pihak sekolah dalam pelaksanaan kegiatan dan kebutuhan operasional.</li>
+                <li>Terbiasa mengelola berbagai tanggung jawab secara disiplin sambil menyelesaikan pendidikan S1.</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-bold text-on-surface">
+                <span>Freelance – Academic & IT Services | Self-Employed</span>
+                <span class="text-secondary font-mono">Juli 2024 – Sekarang</span>
+              </div>
+              <div class="text-secondary text-[11px] mb-1">Kabupaten Lampung Timur, Lampung</div>
+              <ul class="list-disc list-inside space-y-0.5 text-[#a1a1aa]">
+                <li>Mengerjakan penyusunan, perbaikan, dan pengelolaan dokumen akademik, laporan, penelitian, serta dokumen pendukung.</li>
+                <li>Mendukung proses submission dan publication support artikel jurnal sesuai kebutuhan klien.</li>
+                <li>Mengembangkan dan memperbaiki aplikasi web/mobile, memahami kebutuhan pengguna, melakukan revisi, testing, dan penyelesaian pekerjaan sesuai deadline.</li>
+                <li>Menggunakan Microsoft Office, teknologi digital, dan AI tools untuk meningkatkan efisiensi pekerjaan.</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-bold text-on-surface">
+                <span>Intern – Bagian Perbendaharaan | BPKAD Kabupaten Lampung Timur</span>
+                <span class="text-secondary font-mono">Januari 2026 – Februari 2026</span>
+              </div>
+              <div class="text-secondary text-[11px] mb-1">Sukadana, Lampung Timur, Lampung</div>
+              <ul class="list-disc list-inside space-y-0.5 text-[#a1a1aa]">
+                <li>Membantu aktivitas administrasi, input, dan pengolahan data sesuai kebutuhan staf pada Bagian Perbendaharaan.</li>
+                <li>Mendukung pekerjaan rutin dan operasional kantor serta pengelolaan dokumen secara teliti.</li>
+                <li>Mengembangkan E-Dispo sebagai proyek digitalisasi pengelolaan surat dan disposisi.</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-bold text-on-surface">
+                <span>Pengurus & Pengajar | Pondok Pesantren Modern Roudhotur Ridwan</span>
+                <span class="text-secondary font-mono">Juli 2021 – Agustus 2026</span>
+              </div>
+              <div class="text-secondary text-[11px] mb-1">Lampung Timur, Lampung</div>
+              <ul class="list-disc list-inside space-y-0.5 text-[#a1a1aa]">
+                <li>Berperan dalam kegiatan pendidikan dan pengelolaan pesantren serta mengajar Bahasa Arab, Bahasa Inggris/Grammar, dan kajian kitab.</li>
+                <li>Turut membantu dokumentasi kegiatan pesantren untuk kebutuhan arsip dan publikasi; membangun disiplin, komunikasi, manajemen waktu, dan tanggung jawab.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selected Projects -->
+        <div class="pb-4 border-b border-[#262626]">
+          <h4 class="font-label-caps text-xs text-primary uppercase font-bold tracking-wider mb-2">// SELECTED PROJECTS</h4>
+          <div class="space-y-3 text-xs">
+            <div>
+              <div class="flex justify-between font-bold text-on-surface">
+                <span>GS Baby Care POS</span>
+                <span class="text-primary font-mono text-[11px]">Vue.js 3 • Capacitor • Supabase/PostgreSQL</span>
+              </div>
+              <p class="text-[#a1a1aa] mt-0.5">Sistem POS mobile hybrid untuk pengelolaan produk/varian, barcode scanning, multi-payment, shift kasir, CRM, dashboard, ekspor data, dan transaksi.</p>
+            </div>
+            <div>
+              <div class="flex justify-between font-bold text-on-surface">
+                <span>Smart Pesantren</span>
+                <span class="text-primary font-mono text-[11px]">Next.js • Supabase • Capacitor • Firebase Cloud Messaging</span>
+              </div>
+              <p class="text-[#a1a1aa] mt-0.5">Aplikasi mobile untuk pengelolaan data santri, absensi QR, progres hafalan, SPP/keuangan, dan notifikasi wali santri.</p>
+            </div>
+            <div>
+              <div class="flex justify-between font-bold text-on-surface">
+                <span>E-Dispo</span>
+                <span class="text-primary font-mono text-[11px]">Web/Mobile • Database • Workflow</span>
+              </div>
+              <p class="text-[#a1a1aa] mt-0.5">Aplikasi pendukung digitalisasi proses surat masuk/keluar dan disposisi untuk membuat pencatatan serta alur administrasi lebih terstruktur.</p>
+            </div>
+            <div>
+              <div class="flex justify-between font-bold text-on-surface">
+                <span>QasirKu / KasirQ</span>
+                <span class="text-primary font-mono text-[11px]">React Native • Expo • POS</span>
+              </div>
+              <p class="text-[#a1a1aa] mt-0.5">Aplikasi kasir mobile untuk mendukung pencatatan transaksi, pengelolaan produk, dan alur penjualan digital.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="pb-4 border-b border-[#262626]">
+          <h4 class="font-label-caps text-xs text-primary uppercase font-bold tracking-wider mb-2">// TECHNICAL SKILLS</h4>
+          <div class="space-y-2 text-xs">
+            <div>
+              <span class="font-bold text-primary font-mono">Administrative & Office: </span>
+              <span class="text-[#a1a1aa]">Administrative Assistance, Documentation, Office Administration, Data Entry, Data Processing, Data Management, Microsoft Office, Microsoft Excel, Microsoft Word</span>
+            </div>
+            <div>
+              <span class="font-bold text-primary font-mono">Development & Database: </span>
+              <span class="text-[#a1a1aa]">Basic SQL & Database, PostgreSQL & Supabase, Git/GitHub, API Integration, Web & Mobile Application Development, Software Testing, Technical Support</span>
+            </div>
+            <div>
+              <span class="font-bold text-primary font-mono">Analytical & Productivity: </span>
+              <span class="text-[#a1a1aa]">Business Process Analysis, Problem Solving, AI-assisted Development, AI Agent & Productivity Tools</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="pb-4 border-b border-[#262626]">
+          <h4 class="font-label-caps text-xs text-primary uppercase font-bold tracking-wider mb-2">// CERTIFICATIONS</h4>
+          <ul class="list-disc list-inside space-y-1 text-xs text-[#a1a1aa]">
+            <li><span class="text-on-surface font-semibold">Sertifikat Magang</span> — BPKAD Kabupaten Lampung Timur | 2026</li>
+            <li><span class="text-on-surface font-semibold">Sertifikat TOEFL</span> (Certificate of Proficiency, Equivalent TOEFL Score: 450) — Language Center, Universitas Nahdlatul Ulama Lampung | Mei 2025</li>
+          </ul>
+        </div>
+
+        <!-- Additional Experience & Achievements -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-4 border-b border-[#262626]">
+          <div>
+            <h4 class="font-label-caps text-xs text-primary uppercase font-bold tracking-wider mb-2">// ADDITIONAL EXPERIENCE</h4>
+            <ul class="list-disc list-inside space-y-1 text-xs text-[#a1a1aa]">
+              <li>Pengurus & Pengajar Pesantren | Juli 2021 – Agustus 2026</li>
+              <li>Media & Dokumentasi Pesantren</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-label-caps text-xs text-primary uppercase font-bold tracking-wider mb-2">// ACHIEVEMENTS</h4>
+            <ul class="list-disc list-inside space-y-1 text-xs text-[#a1a1aa]">
+              <li>Juara 1 — Lomba Pidato Tingkat Yayasan | 2021</li>
+              <li>Juara 2 — Lomba Baca Kitab Kuning Tingkat Yayasan | 2022</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Languages & Relevant Strengths -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+          <div>
+            <h4 class="font-label-caps text-xs text-primary uppercase font-bold tracking-wider mb-2">// LANGUAGES</h4>
+            <ul class="space-y-1 text-xs text-[#a1a1aa]">
+              <li>• Bahasa Indonesia — <span class="text-on-surface font-semibold">Fasih</span></li>
+              <li>• Bahasa Arab — <span class="text-on-surface font-semibold">Profesional</span></li>
+              <li>• Bahasa Inggris — <span class="text-on-surface font-semibold">Menengah</span></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-label-caps text-xs text-primary uppercase font-bold tracking-wider mb-2">// RELEVANT STRENGTHS</h4>
+            <ul class="space-y-1 text-xs text-[#a1a1aa]">
+              <li>• Problem solving dan kemampuan memahami kebutuhan pengguna.</li>
+              <li>• Teliti dalam pengelolaan data, dokumen, dan administrasi.</li>
+              <li>• Komunikasi baik, mampu kerja mandiri maupun tim.</li>
+              <li>• Cepat belajar teknologi baru & AI-assisted development.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-[#262626] flex items-center justify-between">
+        <a href="assets/cv/CV_Bagus_Karandika.pdf" download="CV_Bagus_Karandika.pdf" class="inline-flex items-center gap-2 px-6 py-2.5 bg-primary-container text-on-primary-container font-label-caps text-xs uppercase font-bold tracking-wider hover:bg-inverse-primary transition-colors">
+          <span class="material-symbols-outlined text-sm">download</span> Unduh PDF File Lengkap
+        </a>
+        <button onclick="closeCvModal()" class="px-5 py-2.5 bg-[#1c1c1c] text-secondary hover:text-on-surface font-label-caps text-xs uppercase font-semibold">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- LIGHTBOX IMAGE PREVIEW                                            -->
+  <!-- ================================================================= -->
+  <div id="lightbox-modal" class="modal-backdrop fixed inset-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-lg flex items-center justify-center p-4">
+    <button id="close-lightbox" aria-label="Tutup" class="absolute top-6 right-6 text-on-surface hover:text-primary p-2">
+      <span class="material-symbols-outlined text-3xl">close</span>
+    </button>
+    <div class="max-w-5xl max-h-[85vh] p-2">
+      <img id="lightbox-image" src="" alt="Preview" class="max-w-full max-h-[80vh] object-contain rounded-lg border border-[#262626] shadow-2xl">
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- TOAST NOTIFICATION                                                -->
+  <!-- ================================================================= -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 bg-[#141414] border border-primary-container text-on-surface px-4 py-3 rounded shadow-2xl flex items-center gap-3">
+    <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+    <span id="toast-message" class="text-xs font-mono font-medium"></span>
+  </div>
+
+  <!-- Client-side Interaction Script -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
